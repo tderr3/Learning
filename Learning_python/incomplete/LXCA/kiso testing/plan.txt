@@ -1,0 +1,26 @@
+Pre req
+lxca is set up
+system is managed
+
+setup
+1. Set global settings
+2. set remote image server
+3. launch browser
+4. create log
+
+test
+1. login
+2. nav to os import page
+3. import os
+4. import kiso
+5. Nav to deploy os page
+
+verify
+1. watch os deploy job
+2. check for pass
+
+
+
+function to check page headerX
+
+

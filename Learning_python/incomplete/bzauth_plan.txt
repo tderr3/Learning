@@ -1,0 +1,9 @@
+bug list requests.get('https://bz.labs.lenovo.com/rest/bug?bug_status=Open&classification=Tools&product=Bugzilla&component=authorization_general',verify = False)
+
+1. get bug list from auth general
+	a. grab emails
+2. grab comments from defect list
+3. grab emails from comments
+4. pull out known emails from list
+5. check emails aginst lenovo ad
+6. add checked emails to lenovo group

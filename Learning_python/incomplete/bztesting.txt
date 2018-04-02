@@ -1,0 +1,171 @@
+updateuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818?group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+>>> s = requests.session()
+>>> s.auth=(user,passwd)
+>>> passwd
+'PASSW0RD'
+>>> login = s.get('https://bz-test.labs.lenovo.com/rest/login?login=tderr@lenovo.com&password=PASSW0RD',verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> login
+<Response [200]>
+>>> login.text
+'{"token":"3-3MPzC10NuZ","id":3}'
+>>> i=json.loads(login.text)
+>>> token=i['token']
+>>> tolen
+Traceback (most recent call last):
+  File "<pyshell#72>", line 1, in <module>
+    tolen
+NameError: name 'tolen' is not defined
+>>> token
+'3-3MPzC10NuZ'
+>>> login = s.get('https://bz-test.labs.lenovo.com/rest/valid_login?login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> login
+<Response [200]>
+>>> login.text
+'{"result":true}'
+>>> groupadd = s.put('https://bz-test.labs.lenovo.com/rest/user/test121@users.com&group=15&action=update',verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> groupadd
+<Response [401]>
+>>> groupadd.text
+'{"code":410,"message":"You must log in before using this part of Bugzilla.","documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","error":true}'
+>>> login = s.get('https://bz-test.labs.lenovo.com/rest/user/test121@users.com&group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> login
+<Response [404]>
+>>> login.text
+'{"error":true,"message":"There is no user named \'test121@users.com&group=15&action=update&login=tderr@lenovo.com&token=3-3MPzC10NuZ\'. Either you mis-typed the name or that user has not yet registered for a Bugzilla account.","documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","code":51}'
+>>> chck = s.get('https://bz-test.labs.lenovo.com/rest/valid_login?login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> chck.text
+'{"result":true}'
+>>> getuser = s.get('https://bz-test.labs.lenovo.com/rest/user/test121@users.com',verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> getuser.text
+'{"users":[{"id":3818,"real_name":"bob noone","name":"test121@users.com"}]}'
+>>> updateuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818&group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser.text
+'{"code":51,"error":true,"documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","message":"There is no user named \'3818&group=15&action=update&login=tderr@lenovo.com&token=3-3MPzC10NuZ\'. Either you mis-typed the name or that user has not yet registered for a Bugzilla account."}'
+>>> updateuser = s.get('https://bz-test.labs.lenovo.com/rest/user/id=3818&group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser.text
+'{"error":true,"documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","message":"There is no user named \'id=3818&group=15&action=update&login=tderr@lenovo.com&token=3-3MPzC10NuZ\'. Either you mis-typed the name or that user has not yet registered for a Bugzilla account.","code":51}'
+>>> updateuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818?group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser
+<Response [200]>
+>>> updateuser.text
+'{"users":[{"email":"test121@users.com","login_denied_text":"","real_name":"bob noone","groups":[{"name":"bz_canusewhines","id":11,"description":"User can configure whine reports for self"},{"id":8,"description":"Can edit all bug fields","name":"editbugs"}],"email_enabled":true,"id":3818,"can_login":true,"name":"test121@users.com"}]}'
+>>> getuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818&token='+token,verfiy=False)
+Traceback (most recent call last):
+  File "<pyshell#94>", line 1, in <module>
+    getuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818&token='+token,verfiy=False)
+  File "C:\Python34\lib\site-packages\requests\sessions.py", line 531, in get
+    return self.request('GET', url, **kwargs)
+TypeError: request() got an unexpected keyword argument 'verfiy'
+>>> getuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> getuser
+<Response [404]>
+>>> getuser.text
+'{"code":51,"error":true,"message":"There is no user named \'3818&token=3-3MPzC10NuZ\'. Either you mis-typed the name or that user has not yet registered for a Bugzilla account.","documentation":"http://www.bugzilla.org/docs/tip/en/html/api/"}'
+>>> getuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818?token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> getuser
+<Response [200]>
+>>> getuser.text
+'{"users":[{"email_enabled":true,"real_name":"bob noone","groups":[{"name":"bz_canusewhines","description":"User can configure whine reports for self","id":11},{"description":"Can edit all bug fields","id":8,"name":"editbugs"}],"email":"test121@users.com","login_denied_text":"","name":"test121@users.com","can_login":true,"id":3818}]}'
+>>> payload = {"groups":[{'add'='15'}]}
+SyntaxError: invalid syntax
+>>> payload = {"groups":[{'add':'15'}]}
+>>> updateuser = s.get('https://bz-test.labs.lenovo.com/rest/user/3818?group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False, json=payload)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser
+<Response [200]>
+>>> updateuser.text
+'{"users":[{"email":"test121@users.com","login_denied_text":"","groups":[{"id":11,"description":"User can configure whine reports for self","name":"bz_canusewhines"},{"id":8,"description":"Can edit all bug fields","name":"editbugs"}],"real_name":"bob noone","email_enabled":true,"id":3818,"can_login":true,"name":"test121@users.com"}]}'
+>>> updateuser = s.put('https://bz-test.labs.lenovo.com/rest/user/3818?group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False, json=payload)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser
+<Response [400]>
+>>> updateuser.tect
+Traceback (most recent call last):
+  File "<pyshell#108>", line 1, in <module>
+    updateuser.tect
+AttributeError: 'Response' object has no attribute 'tect'
+>>> updateuser.text
+'{"error":true,"documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","message":"The requested method \'Bugzilla::User::set_action\' was not found.","code":67399}'
+>>> updateuser = s.put('https://bz-test.labs.lenovo.com/rest/user/3818?login=tderr@lenovo.com&token='+token,verify=False, json=payload)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser.text
+'{"error":true,"message":"Not a HASH reference at /var/www/html/Bugzilla/User.pm line 419.\\n","documentation":"http://www.bugzilla.org/docs/tip/en/html/api/","code":100500}'
+>>> updateuser = s.put('https://bz-test.labs.lenovo.com/rest/user/3818?group=15&action=update&login=tderr@lenovo.com&token='+token,verify=False)
+
+Warning (from warnings module):
+  File "C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py", line 852
+    InsecureRequestWarning)
+InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+>>> updateuser
+<Response [400]>
+>>> updateuser.text
+'{"code":67399,"error":true,"message":"The requested method \'Bugzilla::User::set_action\' was not found.","documentation":"http://www.bugzilla.org/docs/tip/en/html/api/"}'
+>>> 

@@ -1,0 +1,1 @@
+@py.exe C:\Python34\mac.py %*

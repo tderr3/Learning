@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" name="TestSequenceFunctions-20180130105250" skipped="1" tests="4" time="0.001">
+	<testcase classname="TestSequenceFunctions" name="test_choice" time="0.000"/>
+	<testcase classname="TestSequenceFunctions" name="test_sample" time="0.000"/>
+	<testcase classname="TestSequenceFunctions" name="test_shuffle" time="0.001"/>
+	<testcase classname="TestSequenceFunctions" name="test_skipped" time="0.000">
+		<skipped message="demonstrating skipping" type="skip"/>
+	</testcase>
+	<system-out>
+<![CDATA[]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
